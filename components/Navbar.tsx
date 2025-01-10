@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Menu } from "lucide-react";
 import { SignedOut, SignInButton } from "@clerk/nextjs";
 import logo from "../public/logo.png"
@@ -11,12 +12,12 @@ const Navbar = () => {
     }
     return (
         <div>
-            <nav className="flex justify-between items-center bg-slate-800 text-slate-400 py-3">
+            <nav className="flex justify-between items-center bg-slate-800 text-slate-400 font-poppins p-3">
                 <Image src={logo} alt="image" width={200}/>
                 <ul className="hidden md:flex space-x-8 text-xl px-3">
-                    <li>Home</li>
-                    <li>Dashboard</li>
-                    <li>Records</li>
+                    <Link href="/home">Home</Link>
+                    <Link href="/dashboard">Dashboard</Link>
+                    <Link href="/records">Records</Link>
                     <SignedOut>
                         <SignInButton />
                     </SignedOut>

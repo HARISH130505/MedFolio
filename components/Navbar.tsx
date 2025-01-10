@@ -16,8 +16,9 @@ const Navbar = () => {
                 <ul className="hidden md:flex space-x-8 text-xl px-3">
                     <li>Home</li>
                     <li>Dashboard</li>
+                    <li>Records</li>
                     <SignedOut>
-                        <SignInButton/>
+                        <SignInButton />
                     </SignedOut>
                 </ul>
                 <div className="md:hidden">

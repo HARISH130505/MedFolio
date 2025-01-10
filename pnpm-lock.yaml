@@ -14,6 +14,9 @@ importers:
       '@clerk/themes':
         specifier: ^2.2.5
         version: 2.2.5
+      lucide-react:
+        specifier: ^0.470.0
+        version: 0.470.0(react@19.0.0)
       next:
         specifier: 15.1.4
         version: 15.1.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -1201,6 +1204,11 @@ packages:
 
   lru-cache@10.4.3:
     resolution: {integrity: sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==}
+
+  lucide-react@0.470.0:
+    resolution: {integrity: sha512-tqYODeoB3qU5gxH33IbL7IcF05EYYzsZQJqdM9HGGHwmoJMPvVLPHO6Plu6HNAfntucZQ41taEw6aUpwOtaoXg==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
   map-obj@4.3.0:
     resolution: {integrity: sha512-hdN1wVrZbb29eBGiGjJbeP8JbKjq1urkHJ/LIP/NY48MZ1QVXUsQBV1G1zvYFHn1XE06cwjBsOI2K3Ulnj1YXQ==}
@@ -3095,6 +3103,10 @@ snapshots:
       tslib: 2.8.1
 
   lru-cache@10.4.3: {}
+
+  lucide-react@0.470.0(react@19.0.0):
+    dependencies:
+      react: 19.0.0
 
   map-obj@4.3.0: {}
 

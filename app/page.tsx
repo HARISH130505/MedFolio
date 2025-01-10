@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import Navbar from "@/components/Navbar";
 
 const Page = () => {
-  return (
-    <div>Page</div>
-  )
-}
+    return (
+        <div>
+            <Navbar />
+        </div>
+    );
+};
 
-export default Page
+export default Page;

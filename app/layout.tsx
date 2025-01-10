@@ -37,7 +37,7 @@ export default function RootLayout({
         >
             <html lang="en">
                 <body
-                    className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+                    className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[linear-gradient(137deg,rgba(33,19,55,1)_43%,rgba(120,9,121,1)_100%)] w-screen h-screen `}
                 >
                     <Navbar />
                     {children}

@@ -1,3 +1,4 @@
+import { Comfortaa } from "next/font/google";
 import type { Config } from "tailwindcss";
 
 export default {
@@ -17,6 +18,7 @@ export default {
       },
       fontFamily:{
         poppins:['Poppins'],
+        comforta:['Comfortaa']
       }
     },
   },

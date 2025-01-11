@@ -11,6 +11,7 @@
   "dependencies": {
     "@clerk/nextjs": "^6.9.9",
     "@clerk/themes": "^2.2.5",
+    "framer-motion": "^11.16.6",
     "lucide-react": "^0.470.0",
     "next": "15.1.4",
     "next-video": "^2.0.0",

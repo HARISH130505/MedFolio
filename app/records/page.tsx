@@ -1,11 +1,13 @@
+import { CircleFadingPlus } from 'lucide-react'
 import React from 'react'
+import Link from 'next/link'
 
 const page = () => {
   const patientdet = [
     {
         id:1,
         dn:"Dr.Pranav",
-        hn:"Appolo",
+        hn:"Apollo",
         diagnosis:"Asthma",
     },
     {
@@ -29,23 +31,29 @@ const page = () => {
   ]
   return (
     <div>
-        <div className='text-white h-screen w-screen font-poppins'>
-            <h1 className='font-poppins text-3xl'>Records</h1>
-            <div className='flex flex-col m-10  text-white'>
+        <div className='text-white space-x-12 font-poppins px-5 mt-4'>
+            <div>
+            <div className='flex justify-between'>
+                <h1 className='text-3xl font-poppins'>Records</h1>
+                <Link href="/addr">
+                    <CircleFadingPlus/>
+                </Link>
+            </div>
+            <div className=' text-white mt-6'>
             {patientdet.map((det,index)=>(
-                <div className=' rounded-md  p-5 mb-5 bg-gray-800'>
-                    <div className='flex justify-between'>
-                       <h1 className='text-slate-400 '>Record#{det.id}</h1>
-                       <a className='text-sky-700 font-semibold'>View Full Details</a>
+                <div className=' rounded-md  p-5 mb-5 bg-gray-800 flex justify-between items-center' key={index}>
+                    <div>
+                        <h1 className='text-slate-400 '>Record#{det.id}</h1>
+                        <ul className='pt-4'>
+                            <li>Doctor's Name: {det.dn}</li>
+                            <li>Hospital Name: {det.hn}</li>
+                            <li>Diagnosis: {det.diagnosis}</li>
+                        </ul>
                     </div>
-                    
-                    <ul className='pt-4'>
-                        <li>Doctor's Name: {det.dn}</li>
-                        <li>Hospital Name: {det.hn}</li>
-                        <li>Diagnosis: {det.diagnosis}</li>
-                    </ul>
+                    <button className='bg-sky-700 p-2 rounded-md h-fit'>View Full Report</button>
                 </div>
             ))}
+            </div>
             </div>
         </div>
     </div>

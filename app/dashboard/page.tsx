@@ -10,7 +10,7 @@ const Dashboard: React.FC = () => {
       <div className="p-6">
         <div className="flex justify-between items-center mb-8">
           <h1 className="font-poppins text-2xl font-semibold">Dashboard Overview</h1>
-          <button className="bg-gray-800 p-2 rounded-full">
+          <button title="btn" type="button" className="bg-gray-800 p-2 rounded-full">
             <Bell className="text-white w-6 h-6" />
           </button>
         </div>

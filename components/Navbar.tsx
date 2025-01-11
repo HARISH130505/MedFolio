@@ -24,7 +24,7 @@ const Navbar = () => {
                 </ul>
                 <div className="md:hidden">
                     {menuFlg ? (
-                        <button
+                    <button title="btn" type="button"
                             className="text-4xl px-2"
                             onClick={handleChange}
                         >
@@ -32,12 +32,7 @@ const Navbar = () => {
                         </button>
                     ) : (
                         <>
-                            <button
-                                className="text-4xl px-2 "
-                                onClick={handleChange}
-                            >
-                                <Menu />
-                            </button>
+                    <button title="btn" type="button" className="text-4xl px-2 "onClick={handleChange}><Menu /></button>
                             <ul className="bg-slate-800 w-full absolute top-16 left-0 text-2xl text-center">
                                 <li className="py-4">Home</li>
                                 <li className="py-4">Dashboard</li>

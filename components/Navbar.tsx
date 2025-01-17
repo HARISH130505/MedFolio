@@ -37,11 +37,18 @@ const Navbar = () => {
                         <>
                     <button title="btn" type="button" className="text-4xl px-2 "onClick={handleChange}><Menu /></button>
                             <ul className="bg-slate-800 w-full absolute top-16 left-0 text-2xl text-center">
-                                <li className="py-4">Home</li>
-                                <li className="py-4">Dashboard</li>
-                                <SignedOut>
-                                    <SignInButton/>
-                                </SignedOut>
+                                <li className="py-4"><Link href="/dashboard">Dashboard</Link></li>
+                                <li className="py-4"><Link href="/records">Records</Link></li>
+                                <li className="py-4"><Link href="/diet">Diet Chart</Link></li>
+                                <li className="py-4">
+                                    <SignedOut>
+                                        <SignInButton />
+                                    </SignedOut>
+                                    <SignedIn>
+                                        <UserButton />
+                                    </SignedIn>
+                                </li>
+                                
                             </ul>
                         </>
                     )}

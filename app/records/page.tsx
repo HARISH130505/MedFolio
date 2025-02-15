@@ -18,7 +18,7 @@ const page = () => {
     useEffect(() => {
         const fetchRecords = async () => {
             try {
-                const response = await fetch('http://localhost:5000');
+                const response = await fetch('https://med-back.vercel.app/');
                 if (!response.ok) {
                     const errorData = await response.json();
                     throw new Error(`HTTP error! status: ${response.status}, message: ${errorData?.message || response.statusText}`);
@@ -45,7 +45,7 @@ const page = () => {
     }
 
     const showFile = (file: string)=>{
-        window.open(`http://localhost:5000/files/${file}`)
+        window.open(`https://med-back.vercel.app/files/${file}`)
     }
 
     return (

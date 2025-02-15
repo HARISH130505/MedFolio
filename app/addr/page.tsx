@@ -42,7 +42,7 @@ const page = () => {
         formData.append('diag', diag);
 
         try {
-            const response = await fetch('http://localhost:5000/uploads', {
+            const response = await fetch('https://med-back.vercel.app/uploads', {
                 method: 'POST',
                 body: formData,
             });

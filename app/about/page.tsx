@@ -1,7 +1,7 @@
 import { Database, Globe, Shield, SmartphoneNfc } from 'lucide-react'
 import React from 'react'
 
-const page = () => {
+const Page = () => {
   return (
     <div className='text-white font-poppins flex flex-col justify-center items-center m-5'>
         <div className='flex flex-col justify center items-center'>
@@ -34,4 +34,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

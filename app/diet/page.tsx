@@ -1,6 +1,6 @@
 import React from "react";
 
-const page: React.FC = () => {
+const Page: React.FC = () => {
   const recommendations = [
     {
       title: "Diabetes Type 2",
@@ -84,4 +84,4 @@ const page: React.FC = () => {
   );
 };
 
-export default page;
+export default Page;

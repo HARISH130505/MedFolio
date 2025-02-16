@@ -1,7 +1,7 @@
 import React from "react";
 import { FileText, Users, Activity, Bell, TrendingUp } from "lucide-react"; 
 
-const Dashboard: React.FC = () => {
+const Page: React.FC = () => {
   return (
     <div className="min-h-screen  text-white">
       <div className="p-6">
@@ -72,5 +72,5 @@ const Dashboard: React.FC = () => {
   );
 };
 
-export default Dashboard;
+export default Page;
 

@@ -10,7 +10,7 @@ interface MedicalRecord {
     file:string;
 }
 
-const page = () => {
+const Page = () => {
     const [patientdet, setPatientdet] = useState<MedicalRecord[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -82,4 +82,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default Page;

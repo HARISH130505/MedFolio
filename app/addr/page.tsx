@@ -74,7 +74,7 @@ const Page = () => {
         };
 
         try {
-            const response = await fetch('https://med-back.vercel.app/uploads', { // Separate endpoint for details
+            const response = await fetch('https://med-back.vercel.app/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -25,9 +25,14 @@ const Page = () => {
                 }
                 const data: MedicalRecord[] = await response.json();
                 setPatientdet(data);
-            } catch (err: any) {
-                console.error("Error fetching records:", err);
-                setError(err.message);
+            } catch (err: unknown) {
+                if (err instanceof Error) {
+                    console.error("Error fetching records:", err.message);
+                    setError(err.message);
+                } else {
+                    console.error("An unknown error occurred", err);
+                    setError("An unknown error occurred");
+                }
             } finally {
                 setLoading(false);
             }

@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 
-const page = () => {
+const Page = () => {
     const [file, setFile] = useState<File | null>(null);
     const [errorMessage, setErrorMessage] = useState<string>('');
     const [dn, setDn] = useState<string>("");
@@ -115,4 +115,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default Page;

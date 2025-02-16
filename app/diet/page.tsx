@@ -41,12 +41,9 @@ const Page: React.FC = () => {
     <div className="min-h-screen  text-white p-6">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-semibold">Diet Recommendations</h1>
-        <div className="flex items-center space-x-4">
           <button className="bg-sky-700 text-white px-4 py-2 rounded-lg flex items-center">
             <span className="material-icons mr-2">Filter</span>
           </button>
-          <button className="bg-sky-700 text-white px-4 py-2 rounded-lg">+ New Recommendation</button>
-        </div>
       </div>
 
       <div className="mb-6">

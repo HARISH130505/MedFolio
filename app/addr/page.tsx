@@ -7,36 +7,42 @@ const Page = () => {
     const [dn, setDn] = useState<string>("");
     const [hn, setHn] = useState<string>("");
     const [diag, setDiag] = useState<string>("");
+    const [uploadStatus, setUploadStatus] = useState<string>('');
 
     const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
         const selectedFile = event.target.files?.[0] || null;
         setErrorMessage('');
+        setFile(selectedFile);
 
         if (selectedFile) {
             if (selectedFile.type !== 'application/pdf') {
                 setErrorMessage('Please upload a valid PDF file.');
-                setFile(null);
                 return;
             }
             if (selectedFile.size > 5 * 1024 * 1024) {
                 setErrorMessage('File size exceeds 5MB limit.');
-                setFile(null);
                 return;
             }
-            setFile(selectedFile);
         }
     };
 
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-
-        if (!file) {
-            setErrorMessage('Please select a PDF file.');
-            return;
-        }
+        setUploadStatus('Uploading...');
 
         const formData = new FormData();
-        formData.append('file', file);
+
+        if (file && !errorMessage) { // Only append if file exists AND is valid
+            formData.append('file', file);
+        } else if (file && errorMessage) {
+            console.error(errorMessage);
+            alert(errorMessage);
+            setUploadStatus('Upload Failed: ' + errorMessage);
+            return;
+        } else {
+            console.warn("No valid file selected, proceeding with other data.");
+        }
+
         formData.append('dn', dn);
         formData.append('hn', hn);
         formData.append('diag', diag);
@@ -55,25 +61,30 @@ const Page = () => {
                     setDn("");
                     setHn("");
                     setDiag("");
-                    alert('File uploaded successfully!');
+                    setUploadStatus('Upload Successful!');
+                    alert('Data uploaded successfully!');
                 } catch (jsonError) {
                     console.error('Unexpected success response (not JSON):', jsonError);
-                    alert('File uploaded, but server response was unexpected.');
+                    setUploadStatus('Upload Successful, but server response was unexpected.');
+                    alert('Data uploaded, but server response was unexpected.');
                 }
             } else {
                 try {
                     const errorData = await response.json();
                     console.error('Upload error (JSON):', errorData);
-                    alert(`File upload failed: ${errorData.message || 'Unknown error'}`);
+                    setUploadStatus('Upload Failed: ' + (errorData.message || 'Unknown error'));
+                    alert(`Data upload failed: ${errorData.message || 'Unknown error'}`);
                 } catch (jsonError) {
                     const errorText = await response.text();
                     console.error('Upload error (text):', errorText);
-                    alert(`File upload failed: ${response.status} - ${response.statusText}`);
+                    setUploadStatus(`Upload Failed: ${response.status} - ${response.statusText}`);
+                    alert(`Data upload failed: ${response.status} - ${response.statusText}`);
                 }
             }
         } catch (error) {
             console.error('Upload error (general):', error);
-            alert('File upload failed: An error occurred.');
+            setUploadStatus('Upload Failed: An error occurred.');
+            alert('Data upload failed: An error occurred.');
         }
     };
 
@@ -102,14 +113,14 @@ const Page = () => {
                         type="file"
                         accept="application/pdf"
                         onChange={handleFileChange}
-                        className="border border-gray-300 rounded p-2"
-                        required
+                        className="border border-gray-300 rounded p-2 text-black" // Added text-black for visibility
                     />
                 </div>
                 <button type="submit" className="bg-sky-700 text-white py-2 px-4 rounded hover:bg-sky-900">
                     Upload
                 </button>
                 {errorMessage && <p className="text-red-500 mt-2">{errorMessage}</p>}
+                <p className="mt-2 text-white">{uploadStatus}</p>
             </form>
         </div>
     );
